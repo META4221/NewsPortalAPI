@@ -2,7 +2,6 @@ import datetime
 
 from django.db import models
 
-# Create your models here.
 class NewsAuthor(models.Model):
     first_name = models.CharField(verbose_name='Имя', max_length=20)
     last_name = models.CharField(verbose_name='Фамилия', max_length=20)
@@ -15,7 +14,6 @@ class NewsAuthor(models.Model):
         verbose_name = 'Автор'
         verbose_name_plural = 'Авторы'
 
-
 class NewsCategory(models.Model):
     name = models.CharField(verbose_name='Название', max_length=150)
     description = models.CharField(verbose_name='Описание', max_length=50)
@@ -27,11 +25,6 @@ class NewsCategory(models.Model):
         verbose_name='Категория'
         verbose_name_plural='Категории'
 
-
-
-
-
-# написать модель тегов
 class NewsTag(models.Model):
     tag_text = models.TextField(verbose_name='Текст тега')
 
@@ -42,8 +35,6 @@ class NewsTag(models.Model):
         verbose_name ='Тег'
         verbose_name_plural ='Теги'
 
-
-#После новой модели сделать миграцию python mange.py makemigartions --> python mange.py migrate
 class News(models.Model):
     news_author = models.ForeignKey(NewsAuthor,related_name='author' , verbose_name='Автор', on_delete=models.CASCADE)
     news_name = models.CharField(verbose_name='Заголоков', max_length=150)
@@ -70,7 +61,3 @@ class NewsComment(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
-#логин root
-#пароль admin
-
-
