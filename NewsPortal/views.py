@@ -11,7 +11,6 @@ class AuthorViewSet(ModelViewSet):
     serializer_class = AuthorSerializer
     queryset = NewsAuthor.objects.all()
 
-
 class CategoryViewSet(ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = CategorySerializer
@@ -55,7 +54,7 @@ class CommentViewSet(ModelViewSet):
     serializer_class = CommentSerializer
     queryset = NewsComment.objects.all()
 
-    # филтрация комментариев по id новости
+    # фильтрация комментариев по id новости
     @action(methods=['get'], detail=False, url_path='filter-comment')
     def filter_comment(self, request):
         news = request.query_params.get('id_news')

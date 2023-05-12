@@ -34,6 +34,7 @@ class NewsSerializer(ModelSerializer):
         model = News
         fields = ('news_name','news_author','news_relize_date','news_text','category_name','tag',)
 
+
 # сериализатор для добавления новостей
 class NewsPostSerializer(ModelSerializer):
     class Meta:
